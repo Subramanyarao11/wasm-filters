@@ -5,6 +5,7 @@ interface ImageState {
   filter: string
   upload: (event: React.DragEvent<HTMLDivElement>) => void
   setFilter: (filter: string) => void
+  resetImage: () => void
 }
 
 export const useImageStore = create<ImageState>((set) => ({
@@ -22,4 +23,5 @@ export const useImageStore = create<ImageState>((set) => ({
   setFilter: (filter) => set((state) => ({
     filter: state.filter === filter ? "" : filter
   })),
+  resetImage: () => set({ file: null, filter: "" }),
 }))
